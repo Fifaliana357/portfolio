@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarobidy - Mon Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #6C9BC0; /* Bleu pastel */
+            --secondary-color: #A5C0B8; /* Vert sauge */
+            --accent-color: #E8B5CE; /* Rose poudré */
+            --light-color: #F8F9FA; /* Gris très clair */
+            --dark-color: #495057; /* Gris foncé */
+            --text-color: #343A40; /* Gris très foncé pour le texte */
+            --background-color: #F1F3F5; /* Gris clair pour le fond */
+            --card-color: #FFFFFF; /* Blanc pour les cartes */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            padding-top: 56px;
+            background-color: var(--background-color);
+        }
+        
+        .navbar {
+            background-color: var(--card-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: var(--dark-color) !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--primary-color) 100%);
+            color: var(--dark-color);
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            text-align: center;
+            color: var(--dark-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--card-color);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-card .card-title {
+            color: var(--dark-color);
+        }
+        
+        .bg-light-custom {
+            background-color: var(--light-color);
+        }
+        
+        .badge {
+            font-weight: 500;
+        }
+        
+        .badge.bg-primary { background-color: var(--primary-color) !important; }
+        .badge.bg-secondary { background-color: var(--secondary-color) !important; color: var(--text-color); }
+        .badge.bg-success { background-color: var(--secondary-color) !important; color: var(--text-color); }
+        .badge.bg-info { background-color: #B8E0D2 !important; color: var(--text-color); }
+        .badge.bg-warning { background-color: #F4ACB7 !important; color: var(--text-color); }
+        .badge.bg-danger { background-color: var(--accent-color) !important; color: var(--text-color); }
+        .badge.bg-dark { background-color: var(--dark-color) !important; }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #5a87b0;
+            border-color: #5a87b0;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Styles pour les modales avec image en arrière-plan */
+        .modal-background {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.3rem;
+            overflow: hidden;
+        }
+        
+        .modal-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+        
+        .modal-background .modal-header,
+        .modal-background .modal-body,
+        .modal-background .modal-footer {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+            border: none;
+        }
+        
+        .modal-background .modal-header {
+            padding-bottom: 0;
+        }
+        
+        .modal-background .modal-title {
+            color: var(--dark-color);
+            font-weight: bold;
+        }
+        
+        .modal-background .btn-close {
+            filter: invert(1);
+            opacity: 0.8;
+        }
+        
+        /* Animation douce pour l'apparition des éléments */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Style personnalisé pour les icônes de compétences */
+        .skill-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        /* Style pour la section à propos */
+        #about {
+            background: linear-gradient(to bottom, var(--card-color) 0%, var(--light-color) 100%);
+        }
+        
+        /* Style pour les images de projets */
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .competence-item {
+            transition: all 0.3s ease;
+            background-color: var(--card-color);
+            height: 100%;
+        }
+
+        .competence-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        .competence-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .competence-item:hover .competence-icon {
+            transform: scale(1.2);
+        }
+
+        .competence-item {
+    transition: all 0.3s ease;
+    background-color: var(--card-color);
+    height: 100%;
+    }
+
+    .competence-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+
+    .competence-logo {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .competence-item:hover .competence-logo {
+        transform: scale(1.2);
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">SAROBIDY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-section">
+        <div class="container text-center fade-in">
+            <h1 class="display-4 fw-bold">Rakotoarimanantsoa Sarobidy Hery Zo</h1>
+            <p class="lead">Développeuse Full Stack</p>
+            <p class="mb-4">Je transforme des idées en solutions numériques efficaces et élégantes</p>
+            <a href="#projets" class="btn btn-primary btn-lg">Voir mes projets</a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-4 fade-in">
+                    <div class="card project-card">
+                        <img src="station.jpg" class="card-img-top" alt="Gestion de station essence">
+                        <div class="card-body">
+                            <h5 class="card-title">Gestion de Station Essence</h5>
+                            <p class="card-text">Application web de gestion d'une station-service.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-primary">PHP</span>
+                                <span class="badge bg-success">MySQL</span>
+                                <span class="badge bg-info">JavaScript</span>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project1Modal">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-4 fade-in">
+                    <div class="card project-card">
+                        <img src="portefeuille.jpg" class="card-img-top" alt="Gestion de dépenses">
+                        <div class="card-body">
+                            <h5 class="card-title">Gestion de Dépenses Mensuelles</h5>
+                            <p class="card-text">Application desktop pour suivre et gérer personnellement votre portefeuille.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-secondary">C#</span>
+                                <span class="badge bg-success">MySQL</span>
+                                <span class="badge bg-warning">WinForms</span>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project2Modal">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-4 fade-in">
+                    <div class="card project-card">
+                        <img src="employe.jpg" class="card-img-top" alt="Gestion d'affectation employés">
+                        <div class="card-body">
+                            <h5 class="card-title">Gestion d'Affectation d'Employés</h5>
+                            <p class="card-text">Système de gestion des affectations du personnel d'un organisme.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-danger">Java</span>
+                                <span class="badge bg-info">PostgreSQL</span>
+                                <span class="badge bg-dark">Swing</span>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project3Modal">Détails</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="competences" class="py-5 bg-light-custom">
+    <div class="container">
+        <h2 class="section-title">Mes Compétences</h2>
+        
+        <div class="row">
+            <!-- Langages de programmation -->
+            <div class="col-md-6 mb-5">
+                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
+                    <i class="bi bi-code-slash me-2"></i>Langages de Programmation
+                </h3>
+                <div class="row">
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="competence-logo">
+                            <h5 class="mt-2">PHP</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="competence-logo">
+                            <h5 class="mt-2">Python</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="competence-logo">
+                            <h5 class="mt-2">Java</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="competence-logo">
+                            <h5 class="mt-2">C#</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="competence-logo">
+                            <h5 class="mt-2">C++</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bases de données -->
+            <div class="col-md-6 mb-5">
+                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
+                    <i class="bi bi-database me-2"></i>Bases de Données
+                </h3>
+                <div class="row">
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="competence-logo">
+                            <h5 class="mt-2">MySQL</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="competence-logo">
+                            <h5 class="mt-2">PostgreSQL</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Microsoft_Office_Access_%282019-present%29.svg/240px-Microsoft_Office_Access_%282019-present%29.svg.png" 
+                                alt="Microsoft Access" 
+                                class="competence-logo" 
+                                style="width: 45px; height: 45px; object-fit: contain;">
+                            <h5 class="mt-2">Access</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- Technologies Web -->
+            <div class="col-md-6 mb-5">
+                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
+                    <i class="bi bi-globe me-2"></i>Technologies Web
+                </h3>
+                <div class="row">
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="competence-logo">
+                            <h5 class="mt-2">HTML</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="competence-logo">
+                            <h5 class="mt-2">CSS</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="competence-logo">
+                            <h5 class="mt-2">JavaScript</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="competence-logo">
+                            <h5 class="mt-2">Bootstrap</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="VueJS" class="competence-logo">
+                            <h5 class="mt-2">VueJS</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Outils & Environnements -->
+            <div class="col-md-6 mb-5">
+                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
+                    <i class="bi bi-tools me-2"></i>Outils & Environnements
+                </h3>
+                <div class="row">
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" class="competence-logo">
+                            <h5 class="mt-2">VS Code</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio" class="competence-logo">
+                            <h5 class="mt-2">Visual Studio</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netbeans/netbeans-original.svg" alt="NetBeans" class="competence-logo">
+                            <h5 class="mt-2">NetBeans</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows" class="competence-logo">
+                            <h5 class="mt-2">Windows</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="competence-logo">
+                            <h5 class="mt-2">Linux</h5>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center mb-4">
+                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="competence-logo">
+                            <h5 class="mt-2">Git</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">À Propos de Moi</h2>
+            
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center">
+                    <img src="mih.JPG" alt="Photo de profil" class="img-fluid rounded-circle mb-4 shadow" style="border: 5px solid var(--primary-color);">
+                </div>
+                <div class="col-md-9">
+                    <p>Je suis une développeuse passionnée par la création de solutions logicielles efficaces et innovantes. Actuellement en Deuxième année de Licence Professionnelle à l'École Nationale d'Informatique de Fianarantsoa, spécialisée en Génie Logiciel et Base de données.</p>
+                    
+                    <h5 class="mt-4" style="color: var(--primary-color);">Formation</h5>
+                    <ul>
+                        <li>Licence II - Génie Logiciel et Base de données | ENI Fianarantsoa (2024-2025)</li>
+                        <li>Licence I - Génie Logiciel et Base de données | ENI Fianarantsoa (2023-2024)</li>
+                        <li>Baccalauréat Série S | Lycée Privé la Pépinière I (2022)</li>
+                    </ul>
+                    
+                    <h5 style="color: var(--primary-color);">Expérience</h5>
+                    <p>Stage au Ministère de la Communication et de la Culture - Développement d'un site web sur la Cartographie Culturelle de Madagascar (Novembre - Décembre 2024)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light-custom">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="contactForm" onsubmit="return false;">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer</button>
+                    </form>
+                    <div id="alertPlaceholder" class="mt-3"></div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: var(--primary-color);">Coordonnées</h5>
+                            <p class="card-text"><i class="bi bi-envelope me-2" style="color: var(--primary-color);"></i> Email : arimanantsoamih@gmail.com</p>
+                            <p class="card-text"><i class="bi bi-telephone me-2" style="color: var(--primary-color);"></i> Téléphone : +261 38 45 040 47</p>
+                            <p class="card-text"><i class="bi bi-geo-alt me-2" style="color: var(--primary-color);"></i> Localisation : Madagascar</p>
+                            
+                            <div class="social-icons mt-4">
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="#"><i class="bi bi-github"></i></a>
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Rakotoarimanantsoa Sarobidy Hery Zo. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <!-- Modal for Project 1 -->
+    <div class="modal fade" id="project1Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-background" style="background-image: url('station.jpg');">
+                <div class="modal-header">
+                    <h5 class="modal-title">Gestion de Station Essence</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Application web complète développée pour gérer l'ensemble des opérations d'une station-service, incluant la vente de carburant et les services annexes.</p>
+                    
+                    <h6>Fonctionnalités principales :</h6>
+                    <ul>
+                        <li><strong>Gestion des produits</strong> : Carburants (essence, diesel, etc.) et produits divers</li>
+                        <li><strong>Suivi des stocks</strong> : Entrées et sorties de produits avec historique complet</li>
+                        <li><strong>Services automobiles</strong> : Lavage, gonflage, peinture, entretien mécanique</li>
+                        <li><strong>Transactions clients</strong> : Enregistrement des achats de carburant et services</li>
+                        <li><strong>Gestion des entretiens</strong> : Suivi détaillé des interventions automobiles</li>
+                    </ul>
+                    
+                    <h6>Fonctionnalités avancées :</h6>
+                    <ul>
+                        <li>Analyse du nombre de clients entre deux dates spécifiques</li>
+                        <li>Génération de PDF pour les fiches d'entretien clients</li>
+                        <li>Identification des 5 clients les plus fidèles/participatifs</li>
+                        <li>Tableau de bord avec graphique des recettes mensuelles</li>
+                        <li>Reporting complet avec statistiques de ventes et performances</li>
+                    </ul>
+                    
+                    <h6>Technologies utilisées :</h6>
+                    <div class="mb-3">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-success">MySQL</span>
+                        <span class="badge bg-info">JavaScript</span>
+                        <span class="badge bg-warning">HTML5</span>
+                        <span class="badge bg-danger">CSS3</span>
+                        <span class="badge bg-secondary">Bootstrap</span>
+                        <span class="badge bg-dark">Chart.js</span>
+                        <span class="badge bg-light text-dark">TCPDF</span>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 2 -->
+    <div class="modal fade" id="project2Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-background" style="background-image: url('portefeuille.jpg');">
+                <div class="modal-header">
+                    <h5 class="modal-title">Gestion de Dépenses Mensuelles</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Application desktop complète permettant de suivre et gérer les finances personnelles avec un système multi-utilisateurs et des fonctionnalités avancées de reporting.</p>
+                    
+                    <h6>Système d'authentification :</h6>
+                    <ul>
+                        <li>Interface de login sécurisée</li>
+                        <li>Système multi-utilisateurs avec gestion des sessions</li>
+                        <li>Séparation des données par utilisateur</li>
+                    </ul>
+                    
+                    <h6>Fonctionnalités principales :</h6>
+                    <ul>
+                        <li>Gestion complète des revenus (ajout, modification, suppression, consultation)</li>
+                        <li>Gestion complète des dépenses classées par catégories</li>
+                        <li>Suivi en temps réel des transactions financières</li>
+                    </ul>
+                    
+                    <h6>Tableau de bord et visualisation :</h6>
+                    <ul>
+                        <li>Affichage du revenu global, du total des dépenses et du solde actuel sur le menu principal</li>
+                        <li>Graphique circulaire (camembert) représentant la répartition des dépenses par catégories</li>
+                    </ul>
+                    
+                    <h6>Reporting et export :</h6>
+                    <ul>
+                        <li>Génération de rapports mensuels détaillés (revenus et dépenses)</li>
+                        <li>Export automatique des rapports en format PDF pour archivage physique</li>
+                    </ul>
+                    
+                    <h6>Technologies utilisées :</h6>
+                    <div class="mb-3">
+                        <span class="badge bg-secondary">C#</span>
+                        <span class="badge bg-success">MySQL</span>
+                        <span class="badge bg-warning">WinForms</span>
+                        <span class="badge bg-info">Charting Library</span>
+                        <span class="badge bg-danger">PDFSharp</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 3 -->
+    <div class="modal fade" id="project3Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-background" style="background-image: url('employe.jpg');">
+                <div class="modal-header">
+                    <h5 class="modal-title">Gestion d'Affectation d'Employés</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Système complet de gestion des affectations du personnel développé pour un organisme, permettant de suivre et gérer les mutations des employés entre différents lieux de travail.</p>
+                    
+                    <h6>Fonctionnalités principales :</h6>
+                    <ul>
+                        <li>Création, consultation, modification et suppression des lieux</li>
+                        <li>Gestion complète des employés (ajout, modification, suppression)</li>
+                        <li>Suivi des affectations avec historique détaillé</li>
+                    </ul>
+                    
+                    <h6>Fonctionnalités avancées :</h6>
+                    <ul>
+                        <li>Recherche d'un employé par nom ou prénom</li>
+                        <li>Consultation de l'historique complet des affectations d'un employé</li>
+                        <li>Génération d'arrêtés d'affectation en PDF</li>
+                        <li>Notification par email aux employés concernés par une affectation</li>
+                        <li>Liste des affectations effectuées entre deux dates spécifiques</li>
+                        <li>Identification des employés n'ayant jamais été affectés</li>
+                    </ul>
+                    
+                    <h6>Exemple d'arrêté d'affectation généré :</h6>
+                    <div class="border p-3 bg-light rounded">
+                        <p class="mb-1"><strong>Arrêté N°2341 du 23/04/2023</strong></p>
+                        <p class="mb-1">Mr RAKOTO Bernard, qui occupe le poste de Réceptionniste à Fianarantsoa, est affecté à Antananarivo pour compter de la date de prise de service 30/04/2023.</p>
+                        <p class="mb-0">Le présent communiqué sera enregistré et communiqué partout où besoin sera.</p>
+                    </div>
+                    
+                    <h6 class="mt-3">Technologies utilisées :</h6>
+                    <div class="mb-3">
+                        <span class="badge bg-danger">Java</span>
+                        <span class="badge bg-info">PostgreSQL</span>
+                        <span class="badge bg-dark">Swing GUI</span>
+                        <span class="badge bg-warning">JavaMail API</span>
+                        <span class="badge bg-success">iText PDF</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple form validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message! Je vous répondrai dès que possible.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElems = document.querySelectorAll('.fade-in');
+            
+            const fadeInOptions = {
+                threshold: 0.3
+            };
+            
+            const fadeInObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, fadeInOptions);
+            
+            fadeElems.forEach(elem => {
+                elem.style.opacity = 0;
+                elem.style.transition = 'opacity 0.8s ease-in-out';
+                fadeInObserver.observe(elem);
+            });
+        });
+    </script>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialiser EmailJS avec votre Public Key
+        emailjs.init("Ym_2i8TGQAD_HI2w6"); // Remplacez par votre Public Key
+        
+        // Gestion de l'envoi du formulaire
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            sendEmail();
+        });
+        
+        function sendEmail() {
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Désactiver le bouton et afficher un indicateur de chargement
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Envoi...';
+            
+            // Récupérer les valeurs du formulaire
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                date: new Date().toLocaleDateString('fr-FR')
+            };
+            
+            console.log("Données envoyées:", templateParams);
+            
+            // Envoyer l'email via EmailJS
+            emailjs.send('service_k6aylr8', 'template_6gtff8t', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showAlert('Votre message a été envoyé avec succès ! Je vous répondrai dès que possible.', 'success');
+                    document.getElementById('contactForm').reset();
+                }, function(error) {
+                    console.error('FAILED...', error);
+                    showAlert('Désolé, une erreur s\'est produite. Veuillez réessayer ou me contacter directement à arimanantsoamih@gmail.com.', 'danger');
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                });
+        }
+        
+        // Fonction pour afficher les alertes
+        function showAlert(message, type) {
+            const alertPlaceholder = document.getElementById('alertPlaceholder');
+            alertPlaceholder.innerHTML = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+            
+            // Masquer automatiquement après 5 secondes
+            setTimeout(() => {
+                const alert = bootstrap.Alert.getOrCreateInstance(alertPlaceholder.querySelector('.alert'));
+                alert.close();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
