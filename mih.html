@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarobidy - Mon Portfolio</title>
+    <title>Portfolio Sarobidy Hery Zo Rakotoarimanantsoa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
@@ -19,19 +19,29 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#accueil">Accueil</a>
+                        <a class="nav-link" href="#accueil">
+                            <i class="bi bi-house-door"></i> Accueil
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projets">Projets</a>
+                        <a class="nav-link" href="#about">
+                            <i class="bi bi-person"></i> À propos
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#competences">Compétences</a>
+                        <a class="nav-link" href="#competences">
+                            <i class="bi bi-gear"></i> Compétences
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">À propos</a>
+                        <a class="nav-link" href="#projets">
+                            <i class="bi bi-folder"></i> Projets
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#contact">
+                            <i class="bi bi-envelope"></i> Contact
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -41,10 +51,131 @@
     <!-- Hero Section -->
     <section id="accueil" class="hero-section">
         <div class="container text-center fade-in">
+            <img src="mih.JPG" alt="Photo de profil" class="img-fluid rounded-circle mb-4 shadow" style="border: 5px solid var(--primary-color);">
             <h1 class="display-4 fw-bold">Rakotoarimanantsoa Sarobidy Hery Zo</h1>
-            <p class="lead">Développeuse Full Stack</p>
+            <p class="lead">Développeur</p>
             <p class="mb-4">Je transforme des idées en solutions numériques efficaces et élégantes</p>
-            <a href="#projets" class="btn btn-primary btn-lg">Voir mes projets</a>
+            <a href="CV Sarobidy Hery Zo.pdf" class="btn btn-primary btn-lg">Mon CV</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">À Propos de Moi</h2>
+            
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="card p-4 mb-4">
+                        <div class="card-body">
+                            <p class="card-text">Je suis une développeuse passionnée par la création de solutions logicielles efficaces et innovantes. Actuellement en Deuxième année de Licence Professionnelle à l'École Nationale d'Informatique de Fianarantsoa, spécialisée en Génie Logiciel et Base de données.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">
+                                <i class="bi bi-book me-2"></i>Formation
+                            </h4>
+                            
+                            <div class="timeline-item">
+                                <h5>Licence II - Génie Logiciel et Base de données</h5>
+                                <p class="text-muted">ENI Fianarantsoa | 2024-2025</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5>Licence I - Génie Logiciel et Base de données</h5>
+                                <p class="text-muted">ENI Fianarantsoa | 2023-2024</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5>Baccalauréat Série S</h5>
+                                <p class="text-muted">Lycée Privé la Pépinière I | 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">
+                                <i class="bi bi-briefcase me-2"></i>Expérience
+                            </h4>
+                            
+                            <div class="timeline-item">
+                                <h5>Développement d'un site web sur la Cartographie Culturelle de Madagascar</h5>
+                                <p class="text-muted">Ministère de la Communication et de la Culture | Novembre - Décembre 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="competences" class="py-5 bg-light-custom">
+        <div class="container">
+            <h2 class="section-title">Mes Compétences</h2>
+            
+            <!-- Frontend -->
+            <div class="skills-category">
+                <h3>Frontend</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">VueJS</span>
+                </div>
+            </div>
+            
+            <!-- Backend -->
+            <div class="skills-category">
+                <h3>Backend</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+            </div>
+            
+            <!-- Bases de Données -->
+            <div class="skills-category">
+                <h3>Bases de Données</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">SQLite</span>
+                </div>
+            </div>
+            
+            <!-- Bureautique -->
+            <div class="skills-category">
+                <h3>Bureautique</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Word</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">PowerPoint</span>
+                </div>
+            </div>
+            
+            <!-- Outils -->
+            <div class="skills-category">
+                <h3>Outils</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Netbeans</span>
+                    <span class="skill-tag">Github</span>
+                    <span class="skill-tag">Canva</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -77,7 +208,7 @@
                         <img src="portefeuille.jpg" class="card-img-top" alt="Gestion de dépenses">
                         <div class="card-body">
                             <h5 class="card-title">Gestion de Dépenses Mensuelles</h5>
-                            <p class="card-text">Application desktop pour suivre et gérer personnellement votre portefeuille.</p>
+                            <p class="card-text">Application desktop pour suivre et gérer votre portefeuille.</p>
                             <div class="mb-2">
                                 <span class="badge bg-secondary">C#</span>
                                 <span class="badge bg-success">MySQL</span>
@@ -108,234 +239,66 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="competences" class="py-5 bg-light-custom">
-    <div class="container">
-        <h2 class="section-title">Mes Compétences</h2>
-        
-        <div class="row">
-            <!-- Langages de programmation -->
-            <div class="col-md-6 mb-5">
-                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
-                    <i class="bi bi-code-slash me-2"></i>Langages de Programmation
-                </h3>
-                <div class="row">
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="competence-logo">
-                            <h5 class="mt-2">PHP</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="competence-logo">
-                            <h5 class="mt-2">Python</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="competence-logo">
-                            <h5 class="mt-2">Java</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="competence-logo">
-                            <h5 class="mt-2">C#</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="competence-logo">
-                            <h5 class="mt-2">C++</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bases de données -->
-            <div class="col-md-6 mb-5">
-                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
-                    <i class="bi bi-database me-2"></i>Bases de Données
-                </h3>
-                <div class="row">
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="competence-logo">
-                            <h5 class="mt-2">MySQL</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="competence-logo">
-                            <h5 class="mt-2">PostgreSQL</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Microsoft_Office_Access_%282019-present%29.svg/240px-Microsoft_Office_Access_%282019-present%29.svg.png" 
-                                alt="Microsoft Access" 
-                                class="competence-logo" 
-                                style="width: 45px; height: 45px; object-fit: contain;">
-                            <h5 class="mt-2">Access</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <!-- Technologies Web -->
-            <div class="col-md-6 mb-5">
-                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
-                    <i class="bi bi-globe me-2"></i>Technologies Web
-                </h3>
-                <div class="row">
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="competence-logo">
-                            <h5 class="mt-2">HTML</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="competence-logo">
-                            <h5 class="mt-2">CSS</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="competence-logo">
-                            <h5 class="mt-2">JavaScript</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="competence-logo">
-                            <h5 class="mt-2">Bootstrap</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="VueJS" class="competence-logo">
-                            <h5 class="mt-2">VueJS</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Outils & Environnements -->
-            <div class="col-md-6 mb-5">
-                <h3 class="mb-4 text-center" style="color: var(--primary-color);">
-                    <i class="bi bi-tools me-2"></i>Outils & Environnements
-                </h3>
-                <div class="row">
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" class="competence-logo">
-                            <h5 class="mt-2">VS Code</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio" class="competence-logo">
-                            <h5 class="mt-2">Visual Studio</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netbeans/netbeans-original.svg" alt="NetBeans" class="competence-logo">
-                            <h5 class="mt-2">NetBeans</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows" class="competence-logo">
-                            <h5 class="mt-2">Windows</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="competence-logo">
-                            <h5 class="mt-2">Linux</h5>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center mb-4">
-                        <div class="competence-item p-3 rounded shadow-sm"> <!-- Ajout du conteneur -->
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="competence-logo">
-                            <h5 class="mt-2">Git</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="section-title">À Propos de Moi</h2>
-            
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center">
-                    <img src="mih.JPG" alt="Photo de profil" class="img-fluid rounded-circle mb-4 shadow" style="border: 5px solid var(--primary-color);">
-                </div>
-                <div class="col-md-9">
-                    <p>Je suis une développeuse passionnée par la création de solutions logicielles efficaces et innovantes. Actuellement en Deuxième année de Licence Professionnelle à l'École Nationale d'Informatique de Fianarantsoa, spécialisée en Génie Logiciel et Base de données.</p>
-                    
-                    <h5 class="mt-4" style="color: var(--primary-color);">Formation</h5>
-                    <ul>
-                        <li>Licence II - Génie Logiciel et Base de données | ENI Fianarantsoa (2024-2025)</li>
-                        <li>Licence I - Génie Logiciel et Base de données | ENI Fianarantsoa (2023-2024)</li>
-                        <li>Baccalauréat Série S | Lycée Privé la Pépinière I (2022)</li>
-                    </ul>
-                    
-                    <h5 style="color: var(--primary-color);">Expérience</h5>
-                    <p>Stage au Ministère de la Communication et de la Culture - Développement d'un site web sur la Cartographie Culturelle de Madagascar (Novembre - Décembre 2024)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light-custom">
         <div class="container">
-            <h2 class="section-title">Contactez-moi</h2>
+            <h2 class="section-title">Contact</h2>
             
-            <div class="row">
-                <div class="col-md-6">
-                    <form id="contactForm" onsubmit="return false;">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100" id="submitBtn">Envoyer le message</button>
+                            </form>
+                            <div id="alertPlaceholder" class="mt-3"></div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer</button>
-                    </form>
-                    <div id="alertPlaceholder" class="mt-3"></div>
-                </div>
 
-                <div class="col-md-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: var(--primary-color);">Coordonnées</h5>
-                            <p class="card-text"><i class="bi bi-envelope me-2" style="color: var(--primary-color);"></i> Email : arimanantsoamih@gmail.com</p>
-                            <p class="card-text"><i class="bi bi-telephone me-2" style="color: var(--primary-color);"></i> Téléphone : +261 38 45 040 47</p>
-                            <p class="card-text"><i class="bi bi-geo-alt me-2" style="color: var(--primary-color);"></i> Localisation : Madagascar</p>
-                            
-                            <div class="social-icons mt-4">
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
-                                <a href="#"><i class="bi bi-github"></i></a>
-                                <a href="#"><i class="bi bi-facebook"></i></a>
-                                <a href="#"><i class="bi bi-twitter"></i></a>
+                        <div class="col-md-6 mt-4 mt-md-0">
+                            <div class="card shadow-sm contact-card h-100">
+                                <div class="card-body contact-info">
+                                    <h4 class="card-title mb-4" style="color: var(--primary-color);">Coordonnées</h4>
+                                    
+                                    <div class="mb-4">
+                                        <div class="contact-icon">
+                                            <i class="bi bi-envelope"></i>
+                                        </div><br>
+                                        <a href="mailto:arimanantsoamih@gmail.com" class="text-decoration-none">arimanantsoamih@gmail.com</a>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <div class="contact-icon">
+                                            <i class="bi bi-telephone"></i>
+                                        </div>
+                                        <p>+261 38 45 040 47</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <div class="contact-icon">
+                                            <i class="bi bi-geo-alt"></i>
+                                        </div>
+                                        <p>Madagascar</p>
+                                    </div>
+                                    
+                                    <div class="social-icons">
+                                        <a href="https://www.linkedin.com/in/sarobidy-fifaliana-422660384" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                        <a href="https://www.github.com/fifaliana357" title="GitHub"><i class="bi bi-github"></i></a>
+                                        <a href="https://www.facebook.com/fifaliana.arimanantsoa" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                        <a href="https://www.instagram.com/fifa.sarobidy" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -353,7 +316,7 @@
 
     <!-- Project Modals -->
     <!-- Modal for Project 1 -->
-    <div class="modal fade" id="project1Modal" tabindex="-1">
+    <div class="modal fade" id="project1Modal" tabindex="-1"> 
         <div class="modal-dialog modal-lg">
             <div class="modal-content modal-background" style="background-image: url('station.jpg');">
                 <div class="modal-header">
@@ -361,12 +324,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Application web complète développée pour gérer l'ensemble des opérations d'une station-service, incluant la vente de carburant et les services annexes.</p>
+                    <p>Application web complète développée pour gérer l'ensemble des opérations d'une station-service.</p>
                     
                     <h6>Fonctionnalités principales :</h6>
                     <ul>
                         <li><strong>Gestion des produits</strong> : Carburants (essence, diesel, etc.) et produits divers</li>
-                        <li><strong>Suivi des stocks</strong> : Entrées et sorties de produits avec historique complet</li>
+                        <li><strong>Suivi des stocks</strong> : Entrées et sorties de produits</li>
                         <li><strong>Services automobiles</strong> : Lavage, gonflage, peinture, entretien mécanique</li>
                         <li><strong>Transactions clients</strong> : Enregistrement des achats de carburant et services</li>
                         <li><strong>Gestion des entretiens</strong> : Suivi détaillé des interventions automobiles</li>
@@ -378,7 +341,6 @@
                         <li>Génération de PDF pour les fiches d'entretien clients</li>
                         <li>Identification des 5 clients les plus fidèles/participatifs</li>
                         <li>Tableau de bord avec graphique des recettes mensuelles</li>
-                        <li>Reporting complet avec statistiques de ventes et performances</li>
                     </ul>
                     
                     <h6>Technologies utilisées :</h6>
@@ -409,13 +371,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Application desktop complète permettant de suivre et gérer les finances personnelles avec un système multi-utilisateurs et des fonctionnalités avancées de reporting.</p>
+                    <p>Application desktop complète permettant de suivre et gérer les finances personnelles.</p>
                     
                     <h6>Système d'authentification :</h6>
                     <ul>
                         <li>Interface de login sécurisée</li>
-                        <li>Système multi-utilisateurs avec gestion des sessions</li>
-                        <li>Séparation des données par utilisateur</li>
+                        <li>Système multi-utilisateurs</li>
                     </ul>
                     
                     <h6>Fonctionnalités principales :</h6>
@@ -427,14 +388,14 @@
                     
                     <h6>Tableau de bord et visualisation :</h6>
                     <ul>
-                        <li>Affichage du revenu global, du total des dépenses et du solde actuel sur le menu principal</li>
+                        <li>Affichage du revenu global, du total des dépenses et du solde actuel</li>
                         <li>Graphique circulaire (camembert) représentant la répartition des dépenses par catégories</li>
                     </ul>
                     
                     <h6>Reporting et export :</h6>
                     <ul>
                         <li>Génération de rapports mensuels détaillés (revenus et dépenses)</li>
-                        <li>Export automatique des rapports en format PDF pour archivage physique</li>
+                        <li>Export automatique des rapports en format PDF</li>
                     </ul>
                     
                     <h6>Technologies utilisées :</h6>
@@ -462,31 +423,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Système complet de gestion des affectations du personnel développé pour un organisme, permettant de suivre et gérer les mutations des employés entre différents lieux de travail.</p>
+                    <p>Système complet de gestion des affectations du personnel d'un organisme, permettant de suivre et gérer les mutations des employés entre différents lieux de travail.<br>Application desktop.</p>
                     
                     <h6>Fonctionnalités principales :</h6>
                     <ul>
-                        <li>Création, consultation, modification et suppression des lieux</li>
-                        <li>Gestion complète des employés (ajout, modification, suppression)</li>
-                        <li>Suivi des affectations avec historique détaillé</li>
+                        <li>Ajout, consultation, modification et suppression des lieux</li>
+                        <li>Gestion complète des employés</li>
+                        <li>Historique des affectations par employé</li>
                     </ul>
                     
                     <h6>Fonctionnalités avancées :</h6>
                     <ul>
                         <li>Recherche d'un employé par nom ou prénom</li>
-                        <li>Consultation de l'historique complet des affectations d'un employé</li>
-                        <li>Génération d'arrêtés d'affectation en PDF</li>
+                        <li>Arrêté d'affectation en PDF</li>
                         <li>Notification par email aux employés concernés par une affectation</li>
                         <li>Liste des affectations effectuées entre deux dates spécifiques</li>
                         <li>Identification des employés n'ayant jamais été affectés</li>
                     </ul>
-                    
-                    <h6>Exemple d'arrêté d'affectation généré :</h6>
-                    <div class="border p-3 bg-light rounded">
-                        <p class="mb-1"><strong>Arrêté N°2341 du 23/04/2023</strong></p>
-                        <p class="mb-1">Mr RAKOTO Bernard, qui occupe le poste de Réceptionniste à Fianarantsoa, est affecté à Antananarivo pour compter de la date de prise de service 30/04/2023.</p>
-                        <p class="mb-0">Le présent communiqué sera enregistré et communiqué partout où besoin sera.</p>
-                    </div>
                     
                     <h6 class="mt-3">Technologies utilisées :</h6>
                     <div class="mb-3">
